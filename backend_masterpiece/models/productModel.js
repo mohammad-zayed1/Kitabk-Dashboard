@@ -29,6 +29,22 @@ const productSchema = new mongoose.Schema({
   quantity:{
     type:Number,
     required: true
+  },
+  pages:{
+    type:Number,
+    required:true,
+  },
+  author:{
+    type:String,
+    required:true,
+  },
+  img:{
+    type:String,
+    required:true
+  },
+  is_delete:{
+    type:Boolean,
+    default:false
   }
 });
 

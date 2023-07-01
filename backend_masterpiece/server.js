@@ -1,24 +1,35 @@
 const express = require("express");
+const app = express();
 const cors = require("cors");
+const cookieParser = require("cookie-parser");
 // const PORT = process.env.PORT;
 const mongoose = require("mongoose");
-const userRouts = require('./routes/userRouter');
-const notFoundHandler = require('./middleware/404');
-const errorHandler = require('./middleware/500');
+// const userRouts = require('./routes/userRouter');
+// const notFoundHandler = require('./middleware/404');
+// const errorHandler = require('./middleware/500');
 
 // import routes
 const productRouter = require('./routes/productRouter');
 const quoteRouter = require('./routes/quotesRouter');
 const aboutRouter = require('./routes/aboutRouter');
 const writerRouter = require('./routes/writerRouter');
-const userRouter = require('./routes/userRouter');
+const authRoute = require('./routes/userRouter');
+const orderRoute = require('./routes/orderRouter')
 
 
-const app = express();
-app.use(cors());
-app.use(express.json());
+
+
+// app.use('*',notFoundHandler);
+// app.use(errorHandler);
+// middlewear
+app.use( cors({
+  origin: ["http://localhost:5173"],
+  methods: ["GET", "POST", "PUT", "DELETE" , "PATCH"],
+  credentials: true,
+}));
 app.use(express.urlencoded({ extended:true}))
-
+app.use(cookieParser());
+app.use(express.json());
 
 
 // use routes
@@ -26,11 +37,12 @@ app.use(productRouter);
 app.use(quoteRouter);
 app.use(aboutRouter);
 app.use(writerRouter);
-app.use(userRouter);
+app.use(authRoute);
+app.use(orderRoute);
 
 
-app.use('*',notFoundHandler);
-app.use(errorHandler);
+
+
 
 module.exports = {
   server: app,

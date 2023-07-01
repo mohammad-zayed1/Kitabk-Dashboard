@@ -55,20 +55,20 @@ export const Stats = (props) => {
       });
   }, [props.refresh]);
 
-// total of request
-const [orders, setOrders] = useState([]);
+  //  get all order r
+  const [orders, setOrders] = useState([]);
 
-// useEffect(() => {
-//   axios
-//     .get("http://localhost:8800/dashboard/charitiesNotActive")
-//     .then((response) => {
-//       setOrders(response.data);
-//       // forceUpdate();
-//     })
-//     .catch((error) => {
-//       console.error("Error fetching data:", error);
-//     });
-// }, [props.refresh]);
+  useEffect(() => {
+    axios
+      .get("http://localhost:8800/allorders")
+      .then((response) => {
+        setOrders(response.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  }, []);
+
 
 
 
