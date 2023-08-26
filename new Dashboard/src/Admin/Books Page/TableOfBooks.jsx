@@ -1,11 +1,11 @@
 /* eslint-disable react/prop-types */
 import Swal from "sweetalert2";
-import { useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import { AiOutlineDelete } from "react-icons/ai";
 import { BiSolidMessageSquareEdit } from "react-icons/bi";
 
-import {  toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 export const TableOfBooks = ({ refresh, setRefresh }) => {
@@ -24,7 +24,6 @@ export const TableOfBooks = ({ refresh, setRefresh }) => {
     author: "",
     img: "",
   });
-  
 
   // get all donors
   useEffect(() => {
@@ -160,7 +159,7 @@ export const TableOfBooks = ({ refresh, setRefresh }) => {
         {/* Start coding here */}
         <h1 className="text-[30px] font-bold py-3">Books</h1>
         <div className="bg-white  relative shadow-md sm:rounded-2xl overflow-scroll max-h-[300px]">
-          <div className="overflow-x-auto">
+          <div className="">
             <table className="w-full text-sm text-left text-gray-500 table-zebra ">
               <thead className="text-xs text-white uppercase bg-[#529b03] ">
                 <tr>
@@ -210,8 +209,11 @@ export const TableOfBooks = ({ refresh, setRefresh }) => {
         <form
           onSubmit={handleSubmitUpdate}
           method="dialog"
-          className="modal-box"
+          className="modal-box relative"
         >
+          <span onClick={()=>   window.my_modal_1.close()} className=" flex items-center justify-center rounded-full shadow-2xl  absolute top-0 right-5 w-[30px] h-[30px] cursor-pointer">
+            x
+          </span>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {/*  */}
             <div className="form-control w-full max-w-xs">

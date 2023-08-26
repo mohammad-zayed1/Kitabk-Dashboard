@@ -1,9 +1,4 @@
-
-
-
-
 export const Nav = () => {
- 
   return (
     <nav className="bg-[#191a3e] border-b border-gray-200 px-4 py-3 fixed left-0 right-0 top-0 z-50 shadow-md">
       <div className="flex flex-wrap  justify-between items-center">
@@ -42,25 +37,12 @@ export const Nav = () => {
             </svg>
             <span className="sr-only">Toggle sidebar</span>
           </button>
-          {/* <Dropdown>
-      <Dropdown.Item>
-        Dashboard
-      </Dropdown.Item>
-      <Dropdown.Item>
-        Settings
-      </Dropdown.Item>
-      <Dropdown.Item>
-        Earnings
-      </Dropdown.Item>
-      <Dropdown.Item>
-        Sign out
-      </Dropdown.Item>
-    </Dropdown> */}
-          <a
-            href="#logo"
-            className="flex items-center justify-between mr-4"
-          >
-           
+
+          <a href="#logo" className="flex items-center justify-center mr-4">
+            <span className="flex items-center justify-center bg-white rounded-full  ">
+
+            <img src="../../public/logo-23.png" className="w-[70px] h-[40px]" />
+            </span>
             <span className="flex items-center  justify-center  w-24 h-10  text-2xl font-semibold whitespace-nowrap text-white">
               Kitabk
             </span>

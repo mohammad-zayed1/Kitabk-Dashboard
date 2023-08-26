@@ -175,8 +175,11 @@ export const TableOfQuotes = ({ refresh, setRefresh }) => {
         <form
           onSubmit={handleSubmitUpdate}
           method="dialog"
-          className="modal-box"
+          className="modal-box relative"
         >
+          <span onClick={()=>   window.my_modal_3.close()} className=" flex items-center justify-center rounded-full shadow-2xl  absolute top-0 right-5 w-[30px] h-[30px] cursor-pointer">
+            x
+          </span>
           <div className="grid grid-cols-1  gap-4 ">
             {/*  */}
             <div className="form-control w-full max-w-xs mx-auto">

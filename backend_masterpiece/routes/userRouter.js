@@ -2,6 +2,7 @@ const router = require("express").Router();
 const userController = require("../controllers/AuthController");
 const { userVerification } = require("../middleware/AuthMiddleware");
 
+router.get("/getusers", userController.getUsers);
 router.post("/signup", userController.Signup);
 router.post("/login", userController.Login);
 router.patch('/updateuser/:id', userController.updateUser)

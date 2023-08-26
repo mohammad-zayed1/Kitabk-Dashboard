@@ -146,8 +146,8 @@ export const TableOfWriters = ({ refresh, setRefresh }) => {
       <div className="">
         <h1 className="text-[30px] font-bold py-3">Authors</h1>
         {/* Start coding here */}
-        <div className="bg-white  relative shadow-md sm:rounded-2xl overflow-scroll max-h-[300px]">
-          <div className="overflow-x-auto">
+        <div className="bg-white  relative shadow-md sm:rounded-2xl  max-h-[300px]">
+          <div className="overflow-scroll">
             <table className="w-full text-sm text-left text-gray-500  table-zebra">
               <thead className="text-xs text-white uppercase bg-[#529b03] ">
                 <tr>
@@ -187,8 +187,14 @@ export const TableOfWriters = ({ refresh, setRefresh }) => {
         <form
           onSubmit={handleSubmitUpdate}
           method="dialog"
-          className="modal-box"
+          className="modal-box relative"
         >
+          <span
+            onClick={() => window.my_modal_2.close()}
+            className=" flex items-center justify-center rounded-full shadow-2xl  absolute top-0 right-5 w-[30px] h-[30px] cursor-pointer"
+          >
+            x
+          </span>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {/*  */}
             <div className="form-control w-full max-w-xs">

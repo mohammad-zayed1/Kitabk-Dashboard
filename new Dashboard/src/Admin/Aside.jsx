@@ -1,110 +1,85 @@
 /* eslint-disable react/prop-types */
-import { useEffect, useState, useReducer } from "react";
-import { Link } from "react-router-dom";
-import axios from "axios";
-
+import { NavLink } from "react-router-dom";
 
 // icons
 import { SiCircle } from "react-icons/si";
-import { FiLogOut } from "react-icons/fi";
+import { FiUsers } from "react-icons/fi";
 import { FaHistory } from "react-icons/fa";
 import { ImBooks } from "react-icons/im";
 import { BsPerson } from "react-icons/bs";
 import { TfiQuoteRight } from "react-icons/tfi";
 import { FcAbout } from "react-icons/fc";
 
-
-
-
-export const Aside = (props) => {
-  const [hotels, setHotels] = useState([]);
-  const [reducer, forceUpdate] = useReducer((x) => x + 1, 0);
-
-  function handleLogOut() {      
-    window.scrollTo(0, 0);
-    
-    var Nav = document.getElementById("Nav");
-    Nav.style.display = "block";
-    var Footer = document.getElementById("Footer");
-    Footer.style.display = "block";
-
-    localStorage.removeItem("token");
-    props.forceUpdate()
-  }
-
-  
-
-  
-
+export const Aside = () => {
   return (
-
-    <aside className="fixed top-0 z-50 w-60  h-screen pt-[62px] pb-1 transition-transform -translate-x-full  md:translate-x-0"
-    >
+    <aside id="drawer-navigation" className="fixed top-0 z-50 w-60  h-screen pt-[62px] pb-1 transition-transform -translate-x-full  md:translate-x-0" >
       <div className="overflow-y-auto py-5 px-3 h-full bg-[#191a3e] ">
         <ul className="space-y-2">
           <li>
-            <Link
+            <NavLink
               to="/"
               className="flex  items-center gap-2 p-2  w-full text-base font-medium text-white rounded-lg transition duration-75 group hover:bg-[#fff] hover:text-black"
             >
               <SiCircle />
               <span className="mr-3">overview</span>
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link
+            <NavLink
+              to="/users"
+              className="flex  items-center gap-2 p-2  w-full text-base font-medium text-white rounded-lg transition duration-75 group hover:bg-[#fff] hover:text-black"
+            >
+              <FiUsers />
+              Users
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
               to="/books"
               className="flex  items-center gap-2 p-2  w-full text-base font-medium text-white rounded-lg transition duration-75 group hover:bg-[#fff] hover:text-black"
             >
               <ImBooks />
-               Books
-            </Link>
+              Books
+            </NavLink>
           </li>
           <li>
-            <Link
+            <NavLink
               to="/orders"
               className="flex  items-center gap-2 p-2  w-full text-base font-medium text-white rounded-lg transition duration-75 group hover:bg-[#fff] hover:text-black"
             >
               <FaHistory />
               History
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link
+            <NavLink
               to="/writers"
               className="flex  items-center gap-2 p-2  w-full text-base font-medium text-white rounded-lg transition duration-75 group hover:bg-[#fff] hover:text-black"
             >
               <BsPerson />
               Writers
-            </Link>
+            </NavLink>
           </li>
-          
+
           <li>
-            <Link
+            <NavLink
               to="/quotes"
               className="flex  items-center gap-2 p-2  w-full text-base font-medium text-white rounded-lg transition duration-75 group hover:bg-[#fff] hover:text-black"
             >
               <TfiQuoteRight />
               Quotes
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link
+            <NavLink
               to="/about"
               className="flex  items-center gap-2 p-2  w-full text-base font-medium text-white rounded-lg transition duration-75 group hover:bg-[#fff] hover:text-black"
             >
-              <FcAbout  />
+              <FcAbout />
               About Us
-            </Link>
+            </NavLink>
           </li>
-          <a href="/###" onClick={handleLogOut}>
-            <span 
-              className="flex  items-center gap-2 p-2  w-full text-base font-medium text-white rounded-lg transition duration-75 group hover:bg-[#fff] hover:text-black"
-              >
-              <FiLogOut />
-              Logout
-            </span>
-          </a>
+          
         </ul>
       </div>
     </aside>

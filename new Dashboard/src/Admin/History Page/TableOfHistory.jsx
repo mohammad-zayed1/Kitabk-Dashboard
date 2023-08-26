@@ -1,26 +1,8 @@
-import { useEffect, useState, useReducer } from "react";
-import { CiCircleRemove, CiCircleCheck } from "react-icons/ci";
-
-// import { BiEdit } from "react-icons/bi";
-// import Swal from "sweetalert2";
-import axios from "axios";
+import { useContext } from "react";
+import { RefreshContext } from "../../App";
 
 export const TableOfHistory = () => {
-  const [reducer, forceUpdate] = useReducer((x) => x + 1, 0);
-  const [orders, setOrders] = useState([]);
-
-  //  get all order request
-  useEffect(() => {
-    axios
-      .get("http://localhost:8800/allorders")
-      .then((response) => {
-        setOrders(response.data);
-      })
-      .catch((error) => {
-        console.error("Error fetching data:", error);
-      });
-  }, []);
-
+  const {orders} = useContext(RefreshContext);
   const tableRows = orders.map((order) => {
     return (
       <tr key={order._id} className="border-b ">
